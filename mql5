@@ -1,0 +1,80 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                         Terms of Reference.mq5   |
+//|              Copyright 2022, Forex Robot Easy Team                |
+//|                        https://www.forexroboteasy.com             |
+//+------------------------------------------------------------------+
+
+#property copyright '2022, Forex Robot Easy Team'
+#property link      'https://www.forexroboteasy.com'
+
+//+------------------------------------------------------------------+
+//| Include Files                                                     |
+//+------------------------------------------------------------------+
+#include <Trade\Trade.mqh>
+
+//+------------------------------------------------------------------+
+//| Global Variables                                                  |
+//+------------------------------------------------------------------+
+CTrade trade;
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Initialize trade module
+    trade.Init();
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Deinitialize trade module
+    trade.Deinit();
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                              |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Call gap detection function
+    DetectFairValueGaps();
+
+    // Call chart illustration function
+    IllustrateFairValueGaps();
+}
+
+//+------------------------------------------------------------------+
+//| Gap Detection Function                                           |
+//+------------------------------------------------------------------+
+void DetectFairValueGaps()
+{
+    // TODO: Add code to detect fair value gaps
+}
+
+//+------------------------------------------------------------------+
+//| Chart Illustration Function                                      |
+//+------------------------------------------------------------------+
+void IllustrateFairValueGaps()
+{
+    // TODO: Add code to illustrate fair value gaps on a chart
+}
+
+//+------------------------------------------------------------------+
+//| Expert program start function                                     |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+    // Run the expert advisor indefinitely
+    while(!IsStopped())
+    {
+        // Sleep for 1 second
+        Sleep(1000);
+    }
+}
